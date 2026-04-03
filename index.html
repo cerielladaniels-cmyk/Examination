@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Dream House</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+ <script src="scripts/aframe.min.js"></script>
+<script src="scripts/ada-water.js"></script>
+  
+</head>
+<body>
+<a-scene>
+  
+<a-assets>
+    
+    <img id="grass" src="/textures/grass.jpg" alt="">
+    <img id="sky" 
+    src="/textures/sunny-sky.jpg"
+alt="">
+
+<a-entity
+  gltf-model="#house-mesh"
+  material="color: #0000FF;"
+  position="0 0 0">
+</a-entity>
+
+
+
+</a-assets>
+
+
+
+<!-- camera position -->
+<a-entity position="0  0">
+  <a-camera></a-camera>
+</a-entity>
+
+
+
+
+
+
+
+<a-sky src="textures/sunny-sky.jpg" 
+background-repeat="no-repeat"
+0rotation="0 64 0"></a-sky>
+<a-plane material="src: #grass;
+repeat: 5000 5000" 
+ rotation="-90 0 0" 
+ scale="10000 10000 1" 
+ geometry=""></a-plane>
+            
+<a-gltf-model 
+id="house" position ="0 0 0"
+scale=" 1 1 1"
+ src="/3DModels/model/mm/scene.gltf"></a-gltf-model>
+
+
+ 
+ 
+ <a-gltf-model id="pool" 
+ position="22.28631 -0.42242 -14.85678" 
+ scale="5 5 6" 
+ src="/swimming_pool/scene.gltf" 
+ gltf-model="/swimming_pool/scene.gltf"></a-gltf-model>
+
+
+
+ <a-water opacity="40"
+  side="double" 
+  width="2.1"
+   
+  base-color="lightblue" 
+  foam-color="blue" 
+  repeat="2" 
+  voronoi-points="5" 
+  rotation="90 0 0" 
+  position="22.335 0.200 -14.757" 
+  scale="2.6 1.2 1.0" 
+  animation="property: scale; dur: 50; loop: NaN; dir: alternate; easing: easeOutElastic" 
+  material="shader: water; transparent: true; repeat: 100 1; map: [object Object]; basecolor: lightblue" 
+ >
+</a-water>
+
+
+
+
+</a-scene>
+
+<script>
+  document.querySelector("a-water").setAttribute("animation", {
+    property: "scale",
+    // from: "10 2 1",
+    // to: "2 15 2",
+    dur: 50,
+    loop: true,
+    dir: "alternate",
+    easing: "easeOutElastic",
+  });
+</script>
+
+
+</body>
+</html>
